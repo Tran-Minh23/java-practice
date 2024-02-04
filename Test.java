@@ -11,26 +11,41 @@ import java.util.Map;
 public class Test {
 
     public static void main(String[] args) {
-        List<Integer> myList = new ArrayList<>(Arrays.asList(0, 0, 1, 0, 0, 0, 0));
+        List<Integer> myList = new ArrayList<>(Arrays.asList(3, 3 ,2, 1 ,3));
 
         int result = jumpingOnClouds(myList);
 
         System.out.println(result);
     }
 
-    public static int jumpingOnClouds(List<Integer> c) {
-        int count = 0;
-        int n = c.size();
+    public static int jumpingOnClouds(List<Integer> arr) {
+        int result = 0;
+        int largest = 0;
+        int numL = -1;
+        Map<Integer, Integer> countOccur = new HashMap<>();
 
-        for (int i = 0; i < n - 1; i++) {
-            if (c.get(i) == 0) {
-                i++;
+        for (int num : arr) {
+            if (countOccur.containsKey(num)) {
+                countOccur.put(num, countOccur.get(num) + 1);
             }
-
-            count++;
+            else {
+                countOccur.put(num, 1);
+            }
         }
 
-        return count;
+        for (Map.Entry<Integer, Integer> entry : countOccur.entrySet()) {
+            if (entry.getValue() > largest) {
+                largest = entry.getValue();
+                numL = entry.getKey();
+            }
+        }
+
+        for (Map.Entry<Integer, Integer> entry : countOccur.entrySet()) {
+            if (entry.getKey() != numL) {
+                result += entry.getValue();
+            }            
+        }
+        return result;
     }
 }
 
