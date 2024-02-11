@@ -6,6 +6,10 @@ public abstract class Pizza {
     protected String name;
     protected String dough;
     protected String sauce;
+    // protected Veggies veggies[];
+    // protected Cheese cheese;
+    // protected Pepperoni pepperoni;
+    // protected Clams clam;
     protected ArrayList<String> toppings = new ArrayList<>();
 
     void prepare() {
@@ -29,6 +33,10 @@ public abstract class Pizza {
  
     void box() {
         System.out.println("Place pizza in official PizzaStore box");
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {
