@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.NavigableMap;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.Map.Entry;
 
 /**
  * Test
@@ -13,57 +16,51 @@ import java.util.Set;
 public class Test {
 
     public static void main(String[] args) {
-        List<List<Integer>> obstacles = new ArrayList<List<Integer>>() {{
-            this.add(Arrays.asList(5, 5));
-            this.add(Arrays.asList(4, 2));
-            this.add(Arrays.asList(2, 3));
-        }};
+        List<String> topic = List.of("10101", "11100", "11010", "00101");
 
-        int boardLength = 5;
-        int numObstacle = 3;
-        int r_q = 4;
-        int c_q = 3;
-
-        int result = queensAttack(boardLength, numObstacle, r_q, c_q, obstacles);
+        List<Integer> result = acmTeam(topic);
 
         System.out.println(result);
     }
 
-    public static int queensAttack(int n, int k, int r_q, int c_q, List<List<Integer>> obstacles) {
-        int attacks = 0;
-        Set<String> obs = new HashSet<>();
+    public static List<Integer> acmTeam(List<String> topic) {
+        List<Integer> result = new ArrayList<>();
+        int max = 0;
+        int team = 0;
 
-        obstacles.forEach(o -> {
-            obs.add(o.get(0) + ":" + o.get(1));
-        });
+        Map<Integer, Integer> htab = new HashMap<>();
 
-        attacks = run(-1, 0, r_q, c_q, n, obs, attacks);
-        attacks = run(-1, 1, r_q, c_q, n, obs, attacks);
-        attacks = run(0, 1, r_q, c_q, n, obs, attacks);
-        attacks = run(1, 1, r_q, c_q, n, obs, attacks);
-        attacks = run(1, 0, r_q, c_q, n, obs, attacks);
-        attacks = run(1, -1, r_q, c_q, n, obs, attacks);
-        attacks = run(0, -1, r_q, c_q, n, obs, attacks);
-        attacks = run(-1, -1, r_q, c_q, n, obs, attacks);
-        
-        return attacks;
-    }
+        for(int i = 0; i < topic.size() - 1; i++) {
+            for(int k = i + 1; k < topic.size(); k++) {
+                String s1 = topic.get(i);
+                String s2 = topic.get(k);
+                int countTopic = 0;
 
-    public static int run(int rowStep, int colStep, int r_q, int c_q, int n, Set<String> obs, int attacks) {
-        r_q += rowStep;
-        c_q += colStep;
+                // System.out.println(s1);
+                // System.out.println(s2);
 
-        while (r_q <= n && r_q > 0 && c_q <= n && c_q > 0) {
-            if (obs.contains(r_q + ":" + c_q)) {
-                break;
-            }
+                for(int j = 0; j < s1.length(); j++) {
+                    if (s1.charAt(j) == '1' || s2.charAt(j) == '1') {
+                        countTopic++;
+                    }
+                }
 
-            attacks++;
-            r_q += rowStep;
-            c_q += colStep;
+                if(htab.containsKey(countTopic)) {
+                    int countTeam = htab.get(countTopic) + 1;
+                    htab.put(countTopic, countTeam);
+                }
+                else {
+                    htab.put(countTopic, 1);
+                }
+            }  
         }
 
-        return attacks;
+        NavigableMap<Integer, Integer> sorted = new TreeMap<>(htab);
+        Entry<Integer, Integer> lastEntry = sorted.lastEntry();
+
+        result.add(lastEntry.getKey());
+        result.add(lastEntry.getValue());
+        return result;
     }
 }
 
