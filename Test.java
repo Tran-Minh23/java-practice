@@ -16,51 +16,20 @@ import java.util.Map.Entry;
 public class Test {
 
     public static void main(String[] args) {
-        List<String> topic = List.of("10101", "11100", "11010", "00101");
+        int b = 3;
+        int bc = 9;
+        int w = 6;
+        int wc= 1;
+        int z = 1;
 
-        List<Integer> result = acmTeam(topic);
+        long result = taumBday(b, w, bc, wc, z);
 
         System.out.println(result);
     }
 
-    public static List<Integer> acmTeam(List<String> topic) {
-        List<Integer> result = new ArrayList<>();
-        int max = 0;
-        int team = 0;
-
-        Map<Integer, Integer> htab = new HashMap<>();
-
-        for(int i = 0; i < topic.size() - 1; i++) {
-            for(int k = i + 1; k < topic.size(); k++) {
-                String s1 = topic.get(i);
-                String s2 = topic.get(k);
-                int countTopic = 0;
-
-                // System.out.println(s1);
-                // System.out.println(s2);
-
-                for(int j = 0; j < s1.length(); j++) {
-                    if (s1.charAt(j) == '1' || s2.charAt(j) == '1') {
-                        countTopic++;
-                    }
-                }
-
-                if(htab.containsKey(countTopic)) {
-                    int countTeam = htab.get(countTopic) + 1;
-                    htab.put(countTopic, countTeam);
-                }
-                else {
-                    htab.put(countTopic, 1);
-                }
-            }  
-        }
-
-        NavigableMap<Integer, Integer> sorted = new TreeMap<>(htab);
-        Entry<Integer, Integer> lastEntry = sorted.lastEntry();
-
-        result.add(lastEntry.getKey());
-        result.add(lastEntry.getValue());
-        return result;
+    public static long taumBday(int b, int w, int bc, int wc, int z) {
+        
+        return (long) b*Math.min(bc, wc+z) + w*Math.min(wc, bc+z);
     }
 }
 
