@@ -1,12 +1,13 @@
 package LearnPatterns.TemplatePattern.interfaces;
 
-public abstract class CaffeineBeverage {
- 
-    final void prepareRecipe() {
+public abstract class CaffeineBeverageWithHook {
+    public final void prepareRecipe() {
         this.boilWater();
         this.brew();
         this.pourInCup();
-        this.addCondiments();
+        if (this.customerWantsCondiments()) {
+            this.addCondiments();
+        }
     }
 
     protected abstract void brew();
@@ -19,5 +20,9 @@ public abstract class CaffeineBeverage {
     
     protected void pourInCup() {
         System.out.println("Pouring into cup");
+    }
+
+    protected boolean customerWantsCondiments() {
+        return true;
     }
 }
