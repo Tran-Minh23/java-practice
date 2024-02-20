@@ -1,29 +1,25 @@
 package LearnPatterns.IteratorPattern.implementation;
 
-import LearnPatterns.IteratorPattern.interfaces.Iterator;
+import java.util.ArrayList;
 import LearnPatterns.IteratorPattern.interfaces.Menu;
 
 public class Waitress {
-    Menu pancakeHouseMenu;
-    Menu dinerMenu;
+    ArrayList<Menu> menus;
  
-    public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
-        this.pancakeHouseMenu = pancakeHouseMenu;
-        this.dinerMenu = dinerMenu;
+    public Waitress(ArrayList<Menu> menus) {
+        this.menus = menus;
     }
  
     public void printMenu() {
-        Iterator pancakeIterator = this.pancakeHouseMenu.createIterator();
-        Iterator dinerIterator = this.dinerMenu.createIterator();
+        java.util.Iterator menuIterator = this.menus.iterator();
 
-        System.out.println("MENU\n----\nBREAKFAST");
-        this.printMenu(pancakeIterator);
-
-        System.out.println("\nLUNCH");
-        this.printMenu(dinerIterator);
+        while(menuIterator.hasNext()) {
+            Menu menu = (Menu)menuIterator.next();
+            this.printMenu(menu.createIterator());
+        }
     }
  
-    private void printMenu(Iterator iterator) {
+    private void printMenu(java.util.Iterator iterator) {
         while (iterator.hasNext()) {
             MenuItem menuItem = (MenuItem)iterator.next();
 
