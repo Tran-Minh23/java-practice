@@ -20,6 +20,7 @@ public class CompositeIterator implements Iterator {
             if (component instanceof Menu) {
                 this.stack.push(component.createIterator());
             } 
+            
             return component;
         } else {
             return null;
