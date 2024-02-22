@@ -7,6 +7,7 @@ public class GumballMachine {
     State noQuarterState;
     State hasQuarterState;
     State soldState;
+    State winnerState;
  
     State state = this.soldOutState;
     int count = 0;
@@ -61,6 +62,10 @@ public class GumballMachine {
 
     State getSoldOutState() {
         return this.soldOutState;
+    }
+
+    State getWinnerState() {
+        return this.winnerState;
     }
 
     int getCount() {
