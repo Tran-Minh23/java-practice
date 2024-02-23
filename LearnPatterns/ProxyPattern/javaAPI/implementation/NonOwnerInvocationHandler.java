@@ -6,26 +6,28 @@ import java.lang.reflect.Method;
 
 import LearnPatterns.ProxyPattern.javaAPI.interfaces.PersonBean;
 
-public class OwnerInvocationHandler implements InvocationHandler { 
+public class NonOwnerInvocationHandler implements InvocationHandler { 
     PersonBean person;
-
-    public OwnerInvocationHandler(PersonBean person) {
+ 
+    public NonOwnerInvocationHandler(PersonBean person) {
         this.person = person;
     }
-    
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-         try {
+        try {
             if (method.getName().startsWith("get")) {
                 return method.invoke(this.person, args);
             } else if (method.getName().equals("setHotOrNotRating")) {
-                throw new IllegalAccessException();
-            } else if (method.getName().startsWith("set")) {
                 return method.invoke(this.person, args);
+            } else if (method.getName().startsWith("set")) {
+                throw new IllegalAccessException();
             } 
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         } 
         return null;
     }
-}
+    
+    
+ }
