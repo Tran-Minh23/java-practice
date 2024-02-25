@@ -5,8 +5,7 @@ import LearnPatterns.CompoundPattern.interfaces.Quackable;
 
 public class QuackCounter implements Quackable {
     Quackable duck;
-    static int numberOfQuacks;
-    Observable observable;
+    static int numberOfQuacks = 0;
   
     public QuackCounter (Quackable duck) {
         this.duck = duck;
@@ -23,11 +22,11 @@ public class QuackCounter implements Quackable {
 
     @Override
     public void registerObserver(Observer observer) {
-        this.observable.registerObserver(observer);
+        this.duck.registerObserver(observer);
     }
 
     @Override
     public void notifyObservers() {
-        this.observable.notifyObservers();
+        this.duck.notifyObservers();
     }
  }

@@ -16,32 +16,48 @@ import java.util.Map.Entry;
 public class Test {
 
     public static void main(String[] args) {
-        List<List<Integer>> container = new ArrayList<>();
-        container.add(Arrays.asList(0, 2, 1));
-        container.add(Arrays.asList(1,1,1));
-        container.add(Arrays.asList(2,0,0));
+        // List<List<Integer>> container = new ArrayList<>();
+        // container.add(Arrays.asList(0, 2, 1));
+        // container.add(Arrays.asList(1,1,1));
+        // container.add(Arrays.asList(2,0,0));
 
-        String result = organizingContainers(container);
+        int p = 400;
+        int q = 700;
 
-        System.out.println(result);
+        kaprekarNumbers(p, q);
+
+        // System.out.println(result);
     }
 
-    public static String organizingContainers(List<List<Integer>> container) {
-        int[] elementInEach = new int[container.size()];
-        int[] countOfEach = new int[container.size()];
-        
-        for (int i = 0; i < container.size(); i++) {
-            for (int j = 0; j < container.size(); j++) {
-                elementInEach[i] += container.get(i).get(j);
-                countOfEach[i] += container.get(j).get(i);
+    public static void kaprekarNumbers(int p, int q) {
+        boolean found = false;
+
+        for (int i = p; i <= q; i++) {
+            long square = (long) i * i;
+            String str = String.valueOf(square);
+            int length = str.length();
+
+            String t1 = str.substring(0, length / 2);
+            String t2 = str.substring(length / 2, length);
+
+            int c1 = t1.isEmpty() ? 0 : Integer.valueOf(t1);
+            int c2 = t2.isEmpty() ? 0 : Integer.valueOf(t2);
+
+            if(i == 1) {
+                System.out.print(i + " ");
+                found = true;
+            }
+            else {
+                if (c1+c2==i) {
+                    System.out.print(i + " ");
+                    found = true;
+                }
             }
         }
 
-        System.out.println(Arrays.toString(elementInEach));
-        System.out.println(Arrays.toString(countOfEach));
-        Arrays.sort(elementInEach);
-        Arrays.sort(countOfEach);
-        return Arrays.equals(elementInEach, countOfEach) ? "Possible": "Impossible";
+        if (!found) {
+            System.out.println("INVALID RANGE");
+        }
     }
 }
 

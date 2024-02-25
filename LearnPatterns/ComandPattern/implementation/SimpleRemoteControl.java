@@ -14,4 +14,4 @@ public class SimpleRemoteControl {
     public void buttonWasPressed() {
         this.slot.execute();
     }
-   }
+}
