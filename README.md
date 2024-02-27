@@ -8,6 +8,8 @@ Folder structure:
     + Producer sends message to an exchange (receive messages and push them to queues). The rules are defined by the exchange type
         + Exchange type: direct, topic, headers, fanout
             + Direct: message goes to the queue whose binding key matches routing key
+            + Topic: message can be as many words, separated by dot
         + Binding can take an extra binding key param
+    + Publisher confirms are an extension to implement reliable publishing
 
 https://www.rabbitmq.com/tutorials/tutorial-five-java
