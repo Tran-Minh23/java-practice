@@ -1,0 +1,25 @@
+version: '3.8'
+
+name: pracice-rabbit
+
+services:
+  rabbitmq:
+    image: harbor.logixtek.com/logix.technology/rabbitmq:3.12.10
+    container_name: rabbitmq
+    hostname: rabitch
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 10s
+      retries: 3
+
+  java-app:
+    build:
+      dockerfile: Dockerfile
+      context: ./workqueues
+    depends_on:
+      rabbitmq:
+        condition: service_healthy

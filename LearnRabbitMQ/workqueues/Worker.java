@@ -1,4 +1,4 @@
-package WorkQueues;
+// package workqueues;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -10,7 +10,7 @@ public class Worker {
   
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost("rabitch");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 

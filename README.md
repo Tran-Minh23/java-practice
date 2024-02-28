@@ -14,6 +14,9 @@ Folder structure:
         + Binding can take an extra binding key param
     + Publisher confirms are an extension to implement reliable publishing
 
+    set CP=.;amqp-client-5.16.0.jar;slf4j-api-1.7.36.jar;slf4j-simple-1.7.36.jar
+    javac -cp %CP% NewTask.java Worker.java
+    java -cp %CP% Worker
 https://www.rabbitmq.com/tutorials/tutorial-five-java
 
 tomorrow task: view project source code. try to run in docker compose

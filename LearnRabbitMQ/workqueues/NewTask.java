@@ -1,4 +1,4 @@
-package WorkQueues;
+// package workqueues.java;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -16,6 +16,7 @@ public class NewTask {
 
             boolean durable = true;
             channel.queueDeclare(QUEUE_NAME, durable, false, false, null);
+            
             String message = "Hello World...";
             channel.basicPublish("", QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
 
