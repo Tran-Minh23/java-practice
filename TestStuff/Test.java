@@ -16,39 +16,13 @@ import java.util.Map.Entry;
 public class Test {
 
     public static void main(String[] args) {
-        // List<List<Integer>> container = new ArrayList<>();
-        // container.add(Arrays.asList(0, 2, 1));
-        // container.add(Arrays.asList(1,1,1));
-        // container.add(Arrays.asList(2,0,0));
+        Queue<Integer> queue = new Queue<>();
 
-        int[] stack = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        queue.enqueue(new Node<>(10));
+        // queue.enqueue(new Node<>(20));
+        // queue.enqueue(new Node<>(30));
 
-        boolean result = binarySearch(stack, 5);
+        System.out.println(queue.tail);
 
-        System.out.println(result);
-    }
-
-    public static boolean binarySearch(int[] stack, int needle) {
-        int lo = 0;
-        int hi = stack.length;
-
-        do {
-            int m = (int) Math.floor((lo + hi) / 2);
-            int v = stack[m];
-
-            if (v == needle) {
-                return true;
-            }
-            else if (v > needle) {
-                hi = m;
-            }
-            else {
-                lo = m+1;
-            }
-        }
-        while(lo < hi);
-
-        return false;
     }
 }
-
