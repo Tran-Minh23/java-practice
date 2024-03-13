@@ -1,7 +1,8 @@
 {
     "java.project.sourcePaths": [
         "LearnRabbitMQ/workqueues",
-        "TestStuff"
+        "TestStuff",
+        "LearnDataStructure"
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
