@@ -1,14 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.NavigableMap;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.Map.Entry;
 
 /**
  * Test
@@ -16,13 +5,17 @@ import java.util.Map.Entry;
 public class Test {
 
     public static void main(String[] args) {
-        Queue<Integer> queue = new Queue<>();
+        int count = 0;
 
-        queue.enqueue(new Node<>(10));
-        // queue.enqueue(new Node<>(20));
-        // queue.enqueue(new Node<>(30));
+        test1();
 
-        System.out.println(queue.tail);
+        for (int i = 1; i <= 10; i++) {
+            count += i;
+        }
+    }
 
+    static void test1() {
+        int test = 0;
+        System.out.println("Hell no");
     }
 }

@@ -1,11 +1,11 @@
-{
-    "java.project.sourcePaths": [
-        "LearnRabbitMQ/workqueues",
-        "TestStuff",
-        "LearnDataStructure"
-    ],
-    "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-    ]
-}
+// {
+//     "java.project.sourcePaths": [
+//         "LearnRabbitMQ/workqueues",
+//         "TestStuff",
+//         "LearnDataStructure"
+//     ],
+//     "java.project.outputPath": "bin",
+//     "java.project.referencedLibraries": [
+//         "lib/**/*.jar",
+//     ]
+// }
