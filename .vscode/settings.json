@@ -1,4 +1,6 @@
-// {
+{
+    "java.configuration.updateBuildConfiguration": "automatic"
+} // {
 //     "java.project.sourcePaths": [
 //         "LearnRabbitMQ/workqueues",
 //         "TestStuff",
