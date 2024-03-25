@@ -37,9 +37,8 @@ public class BFSAdjacencyMatrix {
 
                 seen[i] = true;
                 prev[i] = curr;
+                q.add(i);
             }
-
-            seen[curr] = true;
         } while (!q.isEmpty());
     }
 }
