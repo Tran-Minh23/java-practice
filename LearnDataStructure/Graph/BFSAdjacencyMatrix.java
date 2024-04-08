@@ -2,6 +2,7 @@ package LearnDataStructure.Graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,6 +41,17 @@ public class BFSAdjacencyMatrix {
                 q.add(i);
             }
         } while (!q.isEmpty());
+
+        int curr = needle;
+        List<Integer> out = new ArrayList<>();
+
+        while (prev[curr] != -1) {
+            out.add(curr);
+            curr = prev[curr];
+        }
+
+        Collections.reverse(out);
+        return out;
     }
 }
 
