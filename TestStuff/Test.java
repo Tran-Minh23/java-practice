@@ -11,58 +11,32 @@ import java.util.Map;
 public class Test {
 
     public static void main(String[] args) {
-        int[] arr = { 2, 2, 3, 4, 5 };
-        int result = beautifulTriplets(1, Arrays.asList(2, 2, 3, 4, 5));
+        int result = minimumDistances(Arrays.asList(3, 2, 1, 2, 3));
 
         System.out.println(result);
     }
 
-    public static int beautifulTriplets(int d, List<Integer> arr) {
-        // int result = 0;
-        // int baseIndex = 0;
+    public static int minimumDistances(List<Integer> a) {
+        int result = -1;
 
-        // for (int i = baseIndex; i <= arr.size() - 3; i++) {
+        Map<Integer, Integer> map = new HashMap<>();
 
-        // List<Integer> check = new ArrayList<>();
-        // check.add(arr.get(baseIndex));
+        for (int i = 0; i < a.size(); i++) {
+            if (map.containsKey(a.get(i))) {
+                int get = map.get(a.get(i));
 
-        // for (int j = baseIndex + 1; j < arr.size() - 1; j++) {
-        // int up1 = j;
+                if (result == -1) {
+                    result = i - get;
+                } else {
+                    int cc = i - get;
 
-        // for (int k = up1 + 2; k < arr.size(); k++) {
-        // if (arr.get(baseIndex).equals(arr.get(up1))) {
-        // continue;
-        // }
-
-        // if (arr.get(up1).equals(arr.get(k))) {
-        // continue;
-        // }
-
-        // System.out.println("cc" + baseIndex + up1 + k);
-        // if ((arr.get(up1) - arr.get(baseIndex)) == (arr.get(k) - arr.get(up1))
-        // && (arr.get(up1) - arr.get(baseIndex)) == d) {
-        // result++;
-        // }
-        // }
-        // }
-
-        // baseIndex++;
-        // }
-
-        // return result;
-
-        int result = 0;
-
-        Map<Integer, Integer> seen = new HashMap<>();
-        for (int i : arr) {
-
-            if (seen.containsKey(i - 2 * d) && seen.containsKey(i - d)) {
-                int firstCount = seen.get(i - 2 * d);
-                int secondCount = seen.get(i - d);
-                result += firstCount * secondCount;
+                    if (result > cc) {
+                        result = cc;
+                    }
+                }
+            } else {
+                map.put(a.get(i), i);
             }
-
-            seen.merge(i, 1, (oldValue, value) -> ++oldValue);
         }
 
         return result;
