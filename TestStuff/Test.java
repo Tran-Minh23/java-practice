@@ -11,34 +11,30 @@ import java.util.Map;
 public class Test {
 
     public static void main(String[] args) {
-        int result = minimumDistances(Arrays.asList(3, 2, 1, 2, 3));
+        int result = workbook(5, 3, List.of(4, 2, 6));
 
         System.out.println(result);
     }
 
-    public static int minimumDistances(List<Integer> a) {
-        int result = -1;
+    public static int workbook(int n, int k, List<Integer> arr) {
+        int result = 0;
+        int page = 0;
 
-        Map<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < a.size(); i++) {
-            if (map.containsKey(a.get(i))) {
-                int get = map.get(a.get(i));
-
-                if (result == -1) {
-                    result = i - get;
-                } else {
-                    int cc = i - get;
-
-                    if (result > cc) {
-                        result = cc;
-                    }
+        for (int num : arr) {
+            for (int i = 1; i <= num; i++) {
+                if (i == page) {
+                    result++;
                 }
-            } else {
-                map.put(a.get(i), i);
+
+                if ((i % k == 0) || i == num) {
+                    page++;
+                }
             }
         }
 
+        System.out.println(page + "p");
+
         return result;
     }
+
 }
