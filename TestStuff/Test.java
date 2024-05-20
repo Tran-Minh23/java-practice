@@ -11,30 +11,22 @@ import java.util.Map;
 public class Test {
 
     public static void main(String[] args) {
-        int result = workbook(5, 3, List.of(4, 2, 6));
+        int[] data = { 4 };
+        int result = flatlandSpaceStations(6, data);
 
         System.out.println(result);
     }
 
-    public static int workbook(int n, int k, List<Integer> arr) {
-        int result = 0;
-        int page = 0;
-
-        for (int num : arr) {
-            for (int i = 1; i <= num; i++) {
-                if (i == page) {
-                    result++;
-                }
-
-                if ((i % k == 0) || i == num) {
-                    page++;
-                }
-            }
+    static int flatlandSpaceStations(int n, int[] arr) {
+        Arrays.sort(arr);
+        int maxDistance = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            int distance = (arr[i] - arr[i - 1]) / 2;
+            if (maxDistance < distance)
+                maxDistance = distance;
         }
-
-        System.out.println(page + "p");
-
-        return result;
+        int lastGap = (n - 1) - arr[arr.length - 1];
+        return (lastGap < maxDistance) ? maxDistance : lastGap;
     }
 
 }
