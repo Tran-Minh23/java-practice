@@ -1,0 +1,17 @@
+type Post {
+  id: ID!
+  title: String!
+  description: String
+  author: PostAuthor
+}
+
+extend type Query {
+  findAllPosts: [Post]!
+  countPosts: Long!
+}
+
+extend type Mutation {
+  createPost(title: String!, description: String, author: ID!): Post!
+  updatePost(id: ID!, title: String, description: String): Post!
+  deletePost(id: ID!): Boolean
+}

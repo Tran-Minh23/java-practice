@@ -1,0 +1,16 @@
+scalar Long
+
+type PostAuthor {
+  id: ID!
+  name: String!
+  age: Int
+}
+
+extend type Query {
+  findAllPostAuthors(): [PostAuthor]!
+  countPostAuthors: Long!
+}
+
+extend type Mutation {
+	createPostAuthor(name: String!, age: Int): PostAuthor!
+}

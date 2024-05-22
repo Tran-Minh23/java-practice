@@ -17,21 +17,8 @@ type Author {
   lastName: String
 }
 
-type Post {
-  id: ID!
-  title: String!
-  text: String!
-  author: PostAuthor!
-}
-
-type PostAuthor {
-  id: ID!
-  name: String!
-  posts: [Post]!
-}
-
 type Mutation {
-  createPostAuthor(name: String!): PostAuthor
+  
 }
 
 enum Episode {
