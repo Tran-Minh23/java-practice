@@ -1,0 +1,41 @@
+type Query {
+  bookById(id: ID): Book
+  authorById(id: ID): Author
+  recentPosts(count: Int, offset: Int): [Post]!
+}
+
+type Book {
+  id: ID
+  name: String
+  pageCount: Int
+  author: Author
+}
+
+type Author {
+  id: ID
+  firstName: String
+  lastName: String
+}
+
+type Post {
+  id: ID!
+  title: String!
+  text: String!
+  author: PostAuthor!
+}
+
+type PostAuthor {
+  id: ID!
+  name: String!
+  posts: [Post]!
+}
+
+type Mutation {
+  createPostAuthor(name: String!): PostAuthor
+}
+
+enum Episode {
+  NEWHOPE
+  EMPIRE
+  JEDI
+}
