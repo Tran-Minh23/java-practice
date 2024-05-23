@@ -1,7 +1,7 @@
 type Query {
-  bookById(id: ID): Book
-  authorById(id: ID): Author
-  recentPosts(count: Int, offset: Int): [Post]!
+  # bookById(id: ID): Book
+  # authorById(id: ID): Author
+  # recentPosts(count: Int, offset: Int): [Post]!
 }
 
 type Book {
@@ -15,10 +15,6 @@ type Author {
   id: ID
   firstName: String
   lastName: String
-}
-
-type Mutation {
-  
 }
 
 enum Episode {

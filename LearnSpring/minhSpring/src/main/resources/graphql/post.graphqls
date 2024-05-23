@@ -7,10 +7,10 @@ type Post {
 
 extend type Query {
   findAllPosts: [Post]!
-  countPosts: Long!
+  countPosts: Int!
 }
 
-extend type Mutation {
+type Mutation {
   createPost(title: String!, description: String, author: ID!): Post!
   updatePost(id: ID!, title: String, description: String): Post!
   deletePost(id: ID!): Boolean
