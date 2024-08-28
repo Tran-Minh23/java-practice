@@ -1,14 +1,16 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.configuration.updateBuildConfiguration": "interactive"
 } // {
-//     "java.project.sourcePaths": [
-//         "LearnRabbitMQ/workqueues",
-//         "TestStuff",
-//         "LearnDataStructure"
-//     ],
-//     "java.project.outputPath": "bin",
-//     "java.project.referencedLibraries": [
-//         "lib/**/*.jar",
-//     ]
-// }
+//     "java.configuration.updateBuildConfiguration": "automatic",
+//     "java.compile.nullAnalysis.mode": "automatic"
+// } // {
+// //     "java.project.sourcePaths": [
+// //         "LearnRabbitMQ/workqueues",
+// //         "TestStuff",
+// //         "LearnDataStructure"
+// //     ],
+// //     "java.project.outputPath": "bin",
+// //     "java.project.referencedLibraries": [
+// //         "lib/**/*.jar",
+// //     ]
+// // }

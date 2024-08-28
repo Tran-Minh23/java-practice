@@ -18,6 +18,7 @@ public class RemoteControlTest {
 
         remote.setCommand(lightOn);
         remote.buttonWasPressed();
+
         remote.setCommand(garageOpen);
         remote.buttonWasPressed();
     }
