@@ -1,16 +1,8 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
-} // {
-//     "java.configuration.updateBuildConfiguration": "automatic",
-//     "java.compile.nullAnalysis.mode": "automatic"
-// } // {
-// //     "java.project.sourcePaths": [
-// //         "LearnRabbitMQ/workqueues",
-// //         "TestStuff",
-// //         "LearnDataStructure"
-// //     ],
-// //     "java.project.outputPath": "bin",
-// //     "java.project.referencedLibraries": [
-// //         "lib/**/*.jar",
-// //     ]
-// // }
+    "java.configuration.updateBuildConfiguration": "automatic",
+
+    // Let VS Code's Java extension treat `TestStuff/` as a source root so
+    // "Run" / "Debug" CodeLens works for `TestStuff/Test.java`.
+    "java.project.sourcePaths": ["TestStuff"],
+    "java.project.outputPath": "bin"
+}

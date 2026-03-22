@@ -22,50 +22,32 @@ import java.util.stream.IntStream;
 public class Test {
 
     public static void main(String[] args) {
-        List<Integer> test;
-        test = IntStream.range(0, 100000000).mapToObj(i -> i).collect(Collectors.toList());
-        int sum = 0;
+        int cc = 0;
 
-        Instant start = Instant.now();
-
-        // for (int i = 0; i < test.size(); i++) {
-        // sum += test.get(i);
-        // }
-
-        sum = test.stream().reduce(0, (a, b) -> a + b);
-
-        // sum = test.stream().collect(Collectors.summingInt(Integer::intValue));
-
-        // sum =
-        // test.parallelStream().collect(Collectors.summingInt(Integer::intValue));
-
-        System.out.println(sum);
-
-        Instant end = Instant.now();
-        System.out.println(Duration.between(start, end));
-
+        System.out.println(cc);
+        System.out.println("start");
     }
 
-    public static String superReducedString(String s) {
-        int i = 0;
+    // public static String superReducedString(String s) {
+    // int i = 0;
 
-        while (true && i < s.length() - 1) {
-            if (s.charAt(i) == s.charAt(i + 1)) {
-                StringBuilder sb = new StringBuilder(s);
-                sb.deleteCharAt(i);
-                sb.deleteCharAt(i);
-                s = sb.toString();
+    // while (true && i < s.length() - 1) {
+    // if (s.charAt(i) == s.charAt(i + 1)) {
+    // StringBuilder sb = new StringBuilder(s);
+    // sb.deleteCharAt(i);
+    // sb.deleteCharAt(i);
+    // s = sb.toString();
 
-                i = 0;
-            } else {
-                i++;
-            }
-        }
+    // i = 0;
+    // } else {
+    // i++;
+    // }
+    // }
 
-        if (s.length() == 0) {
-            return "Empty String";
-        }
+    // if (s.length() == 0) {
+    // return "Empty String";
+    // }
 
-        return s;
-    }
+    // return s;
+    // }
 }

@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug TestStuff/Test",
+      "request": "launch",
+      "mainClass": "Test"
+    }
+  ]
+}
+
